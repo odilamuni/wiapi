@@ -5,8 +5,8 @@ export const DisplayDescrip =(props)=>{
     
     return (
         <View>
-            <Text>{props.main}</Text>
-            <Text>{props.description}</Text>      
+            {/* <Text>{props.main}</Text> */}
+            <Text style={{fontSize: 35, fontWeight:'bold',fontFamily:'sans-serif',fontStyle:'italic'}}>{props.description}</Text>      
        </View>
     )
 }

@@ -6,6 +6,7 @@ import {DisplayIcon} from '../components/DisplayIcon';
 import {DisplayTemp} from '../components/DisplayTemp';
 import {DisplayDescrip} from '../components/DisplayDescrip';
 import {DisplayDate} from '../components/DisplayDate';
+import { DisplayToday } from '../components/DisplayToday';
 
 export class WeatherApp extends Component {
     constructor (props){
@@ -80,12 +81,17 @@ export class WeatherApp extends Component {
                     <View style={styles.location}>
                             <DisplayLocation location={this.state.name} country={this.state.country}  />
                     </View>
-                    <View style={styles.today}>
-                            <DisplayDate date={this.state.dateToday}/>
-                            <DisplayDescrip main={this.state.main} description={this.state.description}/>
-                            <DisplayIcon png={this.state.iconToday}/>
-                            <DisplayTemp temp={this.state.temp}/>
-                    </View>
+                    <DisplayToday temp={this.state.tempToday} description={this.state.descriptionToday} icon={this.state.iconToday}/>
+                    {/* <View style={styles.today}>
+                            <View style={{flex: 1, flexDirection:'column', justifyContent:'center',alignItems:'center'}}>
+                                <DisplayIcon png={this.state.iconToday}/>
+                            </View>
+                           
+                            <View style={{flex: 2, flexDirection:'column', justifyContent:'center',alignItems:'center'}}>
+                                <DisplayDescrip description={this.state.descriptionToday}/>
+                                <DisplayTemp temp={this.state.tempToday}/>
+                            </View>
+                    </View> */}
             </View>
             <View style={styles.bottomPage}>
                  <ScrollView>
@@ -104,26 +110,44 @@ export class WeatherApp extends Component {
   const styles = StyleSheet.create({
     container: {
       flex:1,
-      backgroundColor: "yellow",
+      flexDirection:"column",
+      justifyContent: 'space-between',
+      alignItems: 'stretch',
     },
     topPage: {
-        flex:3,
-        backgroundColor: "yellow",
+        flex:1,       
       },
       search: {
         flex:1,
-        backgroundColor: "yellow",
+        backgroundColor: "white",
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'stretch',
+        height:200,
+
       },
       location: {
-        flex:2,
-        backgroundColor: "yellow",
-      },
+        flex:0.5,
+    },
       today: {
-        flex:3,
-        backgroundColor: "yellow",
-      },
-      bottomPage: {
-        flex:2,
-        backgroundColor: "yellow",
-      },
+        flex:1,
+        flexDirection: 'row',
+         backgroundColor: "#fff",
+        borderWidth: 2,
+        borderRadius: 5,
+        borderColor: '#c0c5ce',
+        borderBottomWidth: 0,
+        shadowColor: '#000',
+        // shadowOffset: { width: 5, height: 2 },
+        shadowOpacity: 1,
+        shadowRadius: 5,
+        elevation: 5,
+        marginLeft: 5,
+        marginRight: 5,
+        marginTop: 10,
+    },
+    //   bottomPage: {
+    //     flex:1,
+    //     backgroundColor: "black",
+    //   },
  });
